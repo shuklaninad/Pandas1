@@ -1,0 +1,74 @@
+## Problem 1 : Make a Pandas DataFrame with two-dimensional list ( https://www.geeksforgeeks.org/make-a-pandas-dataframe-with-two-dimensional-list-python/)
+
+import pandas as pd
+roommates = [['Ninad', 'Shukla'], ['Yash', 'Shah'], ['Swapnil', 'Trivedi']]
+df = pd.DataFrame(roommates, columns = ['first_name', 'last_name'])
+
+
+## Problem 2 : Creating DataFrame from dict of narray/lists (https://www.geeksforgeeks.org/python-creating-dataframe-from-dict-of-narray-lists/)
+
+import pandas as pd
+roommates = {'first_name' : ['Ninad', 'Yash', 'Swapnil'], 'last_name' : ['Shukla', 'Shah', 'Trivedi']}
+df = pd.DataFrame(roommates)
+
+
+## Problem 3 : Creating Pandas dataframe using list of lists ( https://www.geeksforgeeks.org/creating-pandas-dataframe-using-list-of-lists/)
+
+import pandas as pd
+enrollment = [['Ninad', 'Maths'], ['Yash', 'Biology'], ['Swapnil', 'Maths']]
+df = pd.DataFrame(enrollment, columns = ['student', 'subject'])
+
+
+## Problem 4 : Creating a Pandas dataframe using list of tuples ( https://www.geeksforgeeks.org/creating-a-pandas-dataframe-using-list-of-tuples/)
+
+import pandas as pd
+result = [('Ninad', 'Maths', 98), ('Yash', 'Biology', 93), ('Swapnil', 'Maths', 88)]
+df = pd.DataFrame(result, columns = ['student', 'subject', 'marks']
+
+
+## Problem 5 : Create a Pandas DataFrame from List of Dicts ( https://www.geeksforgeeks.org/create-a-pandas-dataframe-from-list-of-dicts/)
+
+import pandas as pd
+result = [{'student':'Ninad', 'subject':'Maths', 'marks':98}, 
+          {'student':'Yash', 'subject':'Biology', 'marks':93},
+          {'student':'Swapnil', 'subject':'Maths', 'marks':88}]
+df = pd.DataFrame(result)
+
+
+## Problem 6 : Replace values in Pandas dataframe using regex ( https://www.geeksforgeeks.org/replace-values-in-pandas-dataframe-using-regex/)
+
+import pandas as pd
+result = pd.DataFrame[{'student':'Swapnil', 'subject':'Maths', 'marks':100}, 
+          {'student':'Swapnil', 'subject':'Biology', 'marks':93},
+          {'student':'Sanil', 'subject':'Physics', 'marks':89}] ## student name 'Swapnil' misspelled as 'Sanil'
+
+updated_result = result.replace(to_replace = 'Sanil', value = 'Swapnil', regex = True)
+
+
+## Problem 7 :Big Countries ( https://leetcode.com/problems/big-countries/ )
+
+import pandas as pd
+def big_countries(world: pd.DataFrame) -> pd.DataFrame:
+    df = world[(world['area'] >= 3000000) | (world['population'] >= 25000000)]
+    return df[['name', 'population', 'area']]
+
+
+## Problem 8 :Recyclable and Low Fat Products ( https://leetcode.com/problems/recyclable-and-low-fat-products/ )
+
+import pandas as pd
+def find_products(products: pd.DataFrame) -> pd.DataFrame:
+    df = products[(products.low_fats == 'Y') & (products.recyclable == 'Y')]
+    return df[['product_id']]
+
+
+## Problem 9 :Customer Who Never Order ( https://leetcode.com/problems/customers-who-never-order/ )
+
+import pandas as pd
+def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
+df = customers.merge(orders, left_on = 'id', right_on = 'customerId', how = 'left')
+    df = df[df['customerId'].isna()]
+    return df[['name']].rename(columns = {'name':'customers'})
+
+
+
+          
